@@ -91,6 +91,44 @@ var view = {
     todosUl.innerHTML = '';
     for(var i = 0; i < todoList.todos.length; i++){
       var todoLi = document.createElement('li');
+
+
+      //mess starts here
+      /*
+      <li>
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">My Task 1</h3>
+          </div>
+          <div class="panel-body">
+            Panel content
+          </div>
+        </div>
+      </li>
+      */
+
+      //create elements
+      var outerDiv = document.createElement('div');
+      var innerDiv1 = document.createElement('div');
+      var innerDivTitle = document.createElement('h3');
+      var innerDiv2 = document.createElement('div');
+
+      //nest elements within each other
+      outerDiv.appendChild(innerDiv1);
+      outerDiv.appendChild(innerDiv2);
+      innerDiv1.appendChild(innerDivTitle);
+      todoLi.appendChild(outerDiv);
+
+      //add classes to Elements
+      outerDiv.className = "panel panel-default";
+      innerDiv1.className = "panel-heading";
+      innerDivTitle.className = "panel-title";
+      innerDiv2.className = "panel-body";
+
+
+      //ends
+
+
       var todo = todoList.todos[i];
       var todoTextWithCompletion = '';
 
