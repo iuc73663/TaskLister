@@ -117,7 +117,7 @@ var view = {
       outerDiv.appendChild(innerDiv1);
       outerDiv.appendChild(innerDiv2);
       innerDiv1.appendChild(innerDivTitle);
-      todoLi.appendChild(outerDiv);
+
 
       //add classes to Elements
       outerDiv.className = "panel panel-default";
@@ -126,24 +126,28 @@ var view = {
       innerDiv2.className = "panel-body";
 
 
+      todoLi.appendChild(outerDiv);
       //ends
 
 
+
       var todo = todoList.todos[i];
-      var todoTextWithCompletion = '';
+
+      //add todo title to h3 tag
+      innerDivTitle.textContent = todo.todoText;
+
+      var todoTextCompletion = 'Status of Completion: ';
 
       if(todo.completed){
-        todoTextWithCompletion = "(X) " + todo.todoText;
+        todoTextCompletion += "(X)";
       }
       else
       {
-        todoTextWithCompletion = "( ) " + todo.todoText;
+        todoTextCompletion += "( )";
       }
 
-      //todoLi.textContent = todoTextWithCompletion;
-      innerDiv2.textContent = todoTextWithCompletion;
-      //todosUl.appendChild(todoLi);
-      todosUl.appendChild(outerDiv);
+      innerDiv2.textContent = todoTextCompletion;
+      todosUl.appendChild(todoLi);
     }
   }
 };
