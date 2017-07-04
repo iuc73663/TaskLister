@@ -140,8 +140,10 @@ var view = {
         todoTextWithCompletion = "( ) " + todo.todoText;
       }
 
-      todoLi.textContent = todoTextWithCompletion;
-      todosUl.appendChild(todoLi);
+      //todoLi.textContent = todoTextWithCompletion;
+      innerDiv2.textContent = todoTextWithCompletion;
+      //todosUl.appendChild(todoLi);
+      todosUl.appendChild(outerDiv);
     }
   }
 };
