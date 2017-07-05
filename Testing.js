@@ -99,6 +99,7 @@ var view = {
         <div class="panel panel-default">
           <div class="panel-heading">
             <h3 class="panel-title">My Task 1</h3>
+            <button type="button" class="btn btn-danger">Danger</button>
           </div>
           <div class="panel-body">
             Panel content
@@ -112,20 +113,25 @@ var view = {
       var innerDiv1 = document.createElement('div');
       var innerDivTitle = document.createElement('h3');
       var innerDiv2 = document.createElement('div');
+      var deleteButton = document.createElement('button');
 
       //nest elements within each other
       outerDiv.appendChild(innerDiv1);
       outerDiv.appendChild(innerDiv2);
       innerDiv1.appendChild(innerDivTitle);
-
+      innerDiv1.appendChild(deleteButton);
 
       //add classes to Elements
       outerDiv.className = "panel panel-default";
       innerDiv1.className = "panel-heading";
       innerDivTitle.className = "panel-title";
       innerDiv2.className = "panel-body";
+      deleteButton.className = "btn btn-danger buttonDelete";
 
-
+      deleteButton.addEventListener('click', function() {
+        console.log();
+        //todoList.deleteTodo(todoList.todos[i]);
+      }, false);
       todoLi.appendChild(outerDiv);
       //ends
 
@@ -146,8 +152,13 @@ var view = {
         todoTextCompletion += "( )";
       }
 
+      deleteButton.textContent = "delete";
       innerDiv2.textContent = todoTextCompletion;
       todosUl.appendChild(todoLi);
     }
   }
 };
+
+function myFunction(){
+  console.log("hello");
+}
