@@ -27,6 +27,7 @@ var todoList = {
   deleteTodo : function(pos){
     console.log(this.todos[pos].todoText + " has been removed.");
     this.todos.splice(pos,1);
+    view.displayTodos();
   },
 
   toggleAll : function() {
@@ -127,10 +128,12 @@ var view = {
       innerDivTitle.className = "panel-title";
       innerDiv2.className = "panel-body";
       deleteButton.className = "btn btn-danger buttonDelete";
+      deleteButton.id = i;
+
 
       deleteButton.addEventListener('click', function() {
-        console.log();
-        //todoList.deleteTodo(todoList.todos[i]);
+        console.log(this.deleteButton.id);
+        todoList.deleteTodo(this.deleteButton.id);
       }, false);
       todoLi.appendChild(outerDiv);
       //ends
