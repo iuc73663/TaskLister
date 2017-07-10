@@ -89,7 +89,7 @@ var handlers = {
 var view = {
   displayTodos: function(){
     var todosUl = document.querySelector('ul');
-    todosUl.innerHTML = '';
+    //todosUl.innerHTML = '';
     var data;
 
     for(var i = 0; i < todoList.todos.length; i++){
@@ -98,11 +98,11 @@ var view = {
       data += '<h3 class="panel-title">';
       data += 'Task ';
       data += i;
+      data += " : " + todoList.todos[i].todoText;
       data += '</h3>';
-      data += '<button type="button" class="btn btn-danger" onclick="todoList.deleteTodo(' + i + ')">Delete</button>';
       data += '</div>';
       data += '<div class="panel-body">';
-      data += todoList.todos[i].todoText;
+      data += '<button type="button" class="btn btn-danger" onclick="todoList.deleteTodo(' + i + ')">Delete</button>';
       data += '</div>';
       data += '</div></li>';
 
@@ -178,7 +178,3 @@ var view = {
     todosUl.innerHTML = data;
   }
 };
-
-function myFunction(){
-  console.log("hello");
-}

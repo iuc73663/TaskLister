@@ -16,10 +16,11 @@
       <button onclick="handlers.toggleAll()">Toggle All</button>
     </div>
 
+    <!--
     <div>
       <button onclick="handlers.addTodo()">Add</button>
       <input id="addTodoTextInput" type="text">
-    </div>
+    </div> -->
 
     <div>
       <button onclick="handlers.changeTodo()">Change Todo</button>
@@ -37,8 +38,20 @@
       <input id="toggleCompletedPositionInput" type="number">
     </div>
 
+    <div class="container">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Add A task</h3>
+        </div>
+        <div class="panel-body">
+          <button onclick="handlers.addTodo()">Add</button>
+          <input id="addTodoTextInput" type="text">
+        </div>
+      </div>
+    </div>
+
     <ul class="container">
-  
+
     </ul>
 
     <script src="Testing.js"></script>
