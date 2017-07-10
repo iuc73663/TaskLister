@@ -90,8 +90,22 @@ var view = {
   displayTodos: function(){
     var todosUl = document.querySelector('ul');
     todosUl.innerHTML = '';
+    var data;
+
     for(var i = 0; i < todoList.todos.length; i++){
-      var todoLi = document.createElement('li');
+      data += '<li><div class="panel panel-default">';
+      data += '<div class="panel-heading">';
+      data += '<h3 class="panel-title">';
+      data += 'Task ';
+      data += i;
+      data += '</h3>';
+      data += '<button type="button" class="btn btn-danger" onclick="todoList.deleteTodo(' + i + ')">Delete</button>';
+      data += '</div>';
+      data += '<div class="panel-body">';
+      data += todoList.todos[i].todoText;
+      data += '</div>';
+      data += '</div></li>';
+
 
 
       //mess starts here
@@ -109,6 +123,7 @@ var view = {
       </li>
       */
 
+      /*
       //create elements
       var outerDiv = document.createElement('div');
       var innerDiv1 = document.createElement('div');
@@ -143,7 +158,7 @@ var view = {
       var todo = todoList.todos[i];
 
       //add todo title to h3 tag
-      innerDivTitle.textContent = todo.todoText;
+      //innerDivTitle.textContent = todo.todoText;
 
       var todoTextCompletion = 'Status of Completion: ';
 
@@ -158,7 +173,9 @@ var view = {
       deleteButton.textContent = "delete";
       innerDiv2.textContent = todoTextCompletion;
       todosUl.appendChild(todoLi);
+      */
     }
+    todosUl.innerHTML = data;
   }
 };
 
