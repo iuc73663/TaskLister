@@ -22,6 +22,8 @@ var todoList = {
     }
     else
       console.log("\nItem " + position + " has been completed.\n");
+
+    view.displayTodos();
   },
 
   deleteTodo : function(pos){
@@ -97,83 +99,32 @@ var view = {
       data += '<div class="panel-heading">';
       data += '<h3 class="panel-title">';
       data += 'Task ';
-      data += i;
+      data += (i+1) + " of " + todoList.todos.length;
       data += " : " + todoList.todos[i].todoText;
       data += '</h3>';
       data += '</div>';
-      data += '<div class="panel-body">';
-      data += '<button type="button" class="btn btn-danger" onclick="todoList.deleteTodo(' + i + ')">Delete</button>';
+      data += '<div class="panel-body panelCustomBody">';
+      data += '    <table>';
+      data +=        '<tr>';
+      data +=        '<th>Status: </th>';
+      data +=        '<th>Toggle Complete: </th>';
+      data +=        '<th>Remove Task: </th>';
+      data +=        '</tr>';
+      data +=        '<tr>';
+      if(todoList.todos[i].completed){
+        data += '<td style="background-color:green;" ></td>';
+        data += '<td><button type="button" class="btn btn-success align="center" onclick="todoList.toggleCompleted(' + i + ')">Complete</button></td>';
+      }
+      else {
+        data += '<td style="background-color:red;" ></td>';
+        data += '<td><button type="button" class="btn btn-danger align="center" onclick="todoList.toggleCompleted(' + i + ')">incomplete</button></td>';
+      }
+      data +=        '<td><button type="button" class="btn btn-danger align="center" onclick="todoList.deleteTodo(' + i + ')">Delete</button></td>';
+      data +=        '</tr>';
+      data +=        '</table>';
       data += '</div>';
       data += '</div></li>';
 
-
-
-      //mess starts here
-      /*
-      <li>
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            <h3 class="panel-title">My Task 1</h3>
-            <button type="button" class="btn btn-danger">Danger</button>
-          </div>
-          <div class="panel-body">
-            Panel content
-          </div>
-        </div>
-      </li>
-      */
-
-      /*
-      //create elements
-      var outerDiv = document.createElement('div');
-      var innerDiv1 = document.createElement('div');
-      var innerDivTitle = document.createElement('h3');
-      var innerDiv2 = document.createElement('div');
-      var deleteButton = document.createElement('button');
-
-      //nest elements within each other
-      outerDiv.appendChild(innerDiv1);
-      outerDiv.appendChild(innerDiv2);
-      innerDiv1.appendChild(innerDivTitle);
-      innerDiv1.appendChild(deleteButton);
-
-      //add classes to Elements
-      outerDiv.className = "panel panel-default";
-      innerDiv1.className = "panel-heading";
-      innerDivTitle.className = "panel-title";
-      innerDiv2.className = "panel-body";
-      deleteButton.className = "btn btn-danger buttonDelete";
-      deleteButton.id = i;
-
-
-      deleteButton.addEventListener('click', function() {
-        console.log(this.deleteButton.id);
-        todoList.deleteTodo(this.deleteButton.id);
-      }, false);
-      todoLi.appendChild(outerDiv);
-      //ends
-
-
-
-      var todo = todoList.todos[i];
-
-      //add todo title to h3 tag
-      //innerDivTitle.textContent = todo.todoText;
-
-      var todoTextCompletion = 'Status of Completion: ';
-
-      if(todo.completed){
-        todoTextCompletion += "(X)";
-      }
-      else
-      {
-        todoTextCompletion += "( )";
-      }
-
-      deleteButton.textContent = "delete";
-      innerDiv2.textContent = todoTextCompletion;
-      todosUl.appendChild(todoLi);
-      */
     }
     todosUl.innerHTML = data;
   }

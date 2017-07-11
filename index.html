@@ -10,24 +10,22 @@
   </head>
 
   <body>
-    <h1>TodoList</h1>
+    <h1 align="center">TodoList</h1>
 
+    <!-- added
     <div>
       <button onclick="handlers.toggleAll()">Toggle All</button>
     </div>
 
-    <!--
+
     <div>
       <button onclick="handlers.addTodo()">Add</button>
       <input id="addTodoTextInput" type="text">
     </div> -->
 
-    <div>
-      <button onclick="handlers.changeTodo()">Change Todo</button>
-      <input id="changeTodoPositionInput" type="number">
-      <input id="changeTodoTextInput" type="text">
-    </div>
 
+
+    <!--
     <div>
       <button onclick="handlers.deleteTodo()">Delete Todo</button>
       <input id="deleteTodoPositionInput" type="number">
@@ -37,15 +35,23 @@
       <button onclick="handlers.toggleCompleted()">Toggle Completed</button>
       <input id="toggleCompletedPositionInput" type="number">
     </div>
+  -->
 
     <div class="container">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <h3 class="panel-title">Add A task</h3>
+          <h3 class="panel-title">Add a task</h3>
         </div>
         <div class="panel-body">
           <button onclick="handlers.addTodo()">Add</button>
           <input id="addTodoTextInput" type="text">
+          <button onclick="handlers.toggleAll()">Toggle All</button>
+          <br>
+          <div><br>
+            <button onclick="handlers.changeTodo()">Change Todo</button>
+            <input id="changeTodoPositionInput" type="number">
+            <input id="changeTodoTextInput" type="text">
+          </div>
         </div>
       </div>
     </div>
@@ -53,6 +59,7 @@
     <ul class="container">
 
     </ul>
+
 
     <script src="Testing.js"></script>
     <!-- Optional theme -->
